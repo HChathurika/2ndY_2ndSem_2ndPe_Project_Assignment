@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     environment {
         // Define Docker Hub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
@@ -11,12 +12,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/HChathurika/2ndY_2ndSem_2ndPe_Project_Assignment.git'
+                git branch:'main',url: 'https://github.com/HChathurika/2ndY_2ndSem_2ndPe_Project_Assignment.git'
             }
         }
         stage('Build') {
             steps {
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Test') {
